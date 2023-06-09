@@ -18,10 +18,7 @@ const handleEditingStart = (e) => {
   var index = data.indexOf(e.data);
   e.data.id = index + 1;
   this.socials.push(addedRow)
-  console.log(this.socials);
   localStorage.setItem("socials", JSON.stringify(this.socials));
-  var socialss = JSON.parse(localStorage.getItem("socials"));
-  console.log(socialss);
 }
 
 export default {

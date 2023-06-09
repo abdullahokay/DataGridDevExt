@@ -4,7 +4,7 @@
             <img src="../assets/rast-logo.png" alt="" />
         </DxItem>
         <DxItem locateInMenu="auto" location="center">
-            <div class="toolbar-label">Hakkımızda</div>
+            <div id="hakkimizda-label" class="toolbar-label">Hakkımızda</div>
         </DxItem>
         <DxItem locateInMenu="auto" location="center">
             <div class="toolbar-label">Jüri - Yarışma Yazılımı</div>
@@ -67,10 +67,15 @@ export default {
         }
     }
 
-    @media screen and (min-width: 600px) and (max-width: 60rem) {
+    @media screen and (max-width: 28.75rem) {
+        #hakkimizda-label {
+            display: none;
+        }
+    }
+
+    @media screen and (min-width: 37.5rem) and (max-width: 60rem) {
         .toolbar-label {
             padding: 0 20px 0 0;
         }
     }
-
 </style>

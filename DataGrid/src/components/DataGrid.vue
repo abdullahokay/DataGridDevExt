@@ -1,6 +1,6 @@
 <template>
     <div class="data-grid-container">
-        <DxDataGrid id="data-grid" :stateStoring=true :data-source="socials" :show-column-lines="showColumnLines"
+        <DxDataGrid id="data-grid" :data-source="socials" :show-column-lines="showColumnLines"
             :show-filter-row="showFilterRow" :show-row-lines="showRowLines" :show-borders="showBorders"
             :row-alternation-enabled="rowAlternationEnabled" @onRowInserted="handleEditingStart()">
             <DxScrolling row-rendering-mode="virtual" />
@@ -8,7 +8,7 @@
             <DxPager :visible="true" :allowed-page-sizes="pageSizes" :display-mode="displayMode"
                 :show-page-size-selector="showPageSizeSelector" :show-info="showInfo"
                 :show-navigation-buttons="showNavButtons" />
-            <DxSearchPanel :visible="true" :width="380" :height="50" placeholder="Search..." />
+            <DxSearchPanel class="search-bar" :visible="true" placeholder="Search..." />
             <DxEditing :allow-updating="false" :allow-adding="true" :allow-deleting="false" mode="popup">
                 <DxTexts mode="row" :allow-adding="true" addRow="Yeni Hesap Ekle"></DxTexts>
                 <DxPopup :show-title="true" :width="490" :height="340" title="Yeni Hesap Bilgileri" />
@@ -26,15 +26,9 @@
                     </DxItem>
                 </DxForm>
             </DxEditing>
-            <!-- <DxSearchPanel :visible="true" :width="240" placeholder="Search..." /> -->
-            <!-- <DxColumn :width="80" data-field="Prefix" caption="Title" /> -->
             <DxColumn data-field="SocialLink" caption="Sosyal Medya Linki" />
             <DxColumn data-field="Social" caption="Sosyal Medya Adı" />
             <DxColumn data-field="Description" caption="Açıklama" />
-            <!-- <DxColumn data-field="State" />
-            <DxColumn :width="130" data-field="Position" />
-            <DxColumn :width="100" data-field="BirthDate" data-type="date" />
-            <DxColumn :width="100" data-field="HireDate" data-type="date" /> -->
             <DxToolbar>
                 <DxItem name="searchPanel" location="before" />
                 <DxItem name="addRowButton" show-text="always" location="after" />
@@ -44,7 +38,6 @@
 </template>
 
 <script>
-// import , {  } from 'devextreme-vue/toolbar';
 import {
     DxDataGrid,
     DxColumn,
@@ -57,13 +50,10 @@ import {
     DxForm,
     DxPaging,
     DxPager,
-    DxScrolling
+    DxScrolling,
 } from 'devextreme-vue/data-grid';
 import { DxEmptyItem } from 'devextreme-vue/form';
-import service from '../services/data';
 import crudService from '../services/crud'
-
-
 
 export default {
     components: {
@@ -79,7 +69,7 @@ export default {
         DxEmptyItem,
         DxPaging,
         DxPager,
-        DxScrolling
+        DxScrolling,
     },
     data() {
         return {
@@ -113,6 +103,10 @@ export default {
 
 .dx-datagrid .dx-sort-down {
     font-size: 20px;
+}
+
+.dx-button-mode-contained .dx-icon {
+    color: white;
 }
 
 .dx-button-mode-contained.dx-state-hover {
@@ -155,6 +149,12 @@ export default {
 
 .dx-texteditor.dx-editor-outlined {
     border-radius: 39px;
+}
+
+@media screen and (min-width: 60rem) {
+    .dx-texteditor.dx-editor-outlined.dx-searchbox {
+        width: 380px !important;
+    }
 }
 
 #data-grid .dx-row {
