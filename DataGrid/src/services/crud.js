@@ -13,8 +13,6 @@ const dataSource = new DataSource({
   })
 })
 
-
-
 export default {
   getDataSource() {
     return dataSource
