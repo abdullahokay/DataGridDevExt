@@ -13,19 +13,9 @@ const dataSource = new DataSource({
   })
 })
 
-const handleEditingStart = (e) => {
-  const addedRow = e.data;
-  var index = data.indexOf(e.data);
-  e.data.id = index + 1;
-  this.socials.push(addedRow)
-  localStorage.setItem("socials", JSON.stringify(this.socials));
-}
+
 
 export default {
-  handleEditingStart() {
-    return handleEditingStart(e)
-  },
-
   getDataSource() {
     return dataSource
   },

@@ -86,12 +86,6 @@ export default {
             displayMode: ''
         };
     },
-
-    methods: {
-        handleEditingStart(e) {
-            crudService.handleEditingStart(e)
-        },
-    },
 };
 </script>
 
