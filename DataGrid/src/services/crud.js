@@ -1,6 +1,5 @@
 import DataSource from 'devextreme/data/data_source';
 import LocalStore from 'devextreme/data/local_store';
-import data from './data'
 
 var storageData = JSON.parse(localStorage.getItem("dx-data-localStore-socials"));
 
