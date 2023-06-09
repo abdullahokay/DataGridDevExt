@@ -2,7 +2,7 @@
     <div class="data-grid-container">
         <DxDataGrid id="data-grid" :data-source="socials" :show-column-lines="showColumnLines"
             :show-filter-row="showFilterRow" :show-row-lines="showRowLines" :show-borders="showBorders"
-            :row-alternation-enabled="rowAlternationEnabled" @onRowInserted="handleEditingStart()">
+            :row-alternation-enabled="rowAlternationEnabled">
             <DxScrolling row-rendering-mode="virtual" />
             <DxPaging :page-size="10" />
             <DxPager :visible="true" :allowed-page-sizes="pageSizes" :display-mode="displayMode"
